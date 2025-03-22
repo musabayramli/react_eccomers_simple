@@ -1,46 +1,78 @@
 .image {
-    width: 180px;
-    height: 240px;
+  width: 100%;
+  height: 290px;
+  object-fit: cover; /* Şəkil boyutlarını daha yaxşı uyğunlaşdırır */
 }
 
 .card {
-    width: 200px;
-    padding: 10px 0;
-    box-shadow: 1px 4px 3px lightgrey;
-    border-radius: 10px;
-    margin: 15px;
+  position: relative;
+  width: 100%; 
+  max-width: 220px; 
+  min-width: 180px; 
+  height: 460px; /* Kartın ümumi hündürlüyü */
+  padding: 10px 15px;
+  box-shadow: 1px 4px 3px lightgrey;
+  border-radius: 10px;
+  margin: 15px;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 1px 4px 3px rgb(139, 139, 139);
-    transition: all 0.6s;
-    cursor: pointer;
+  box-shadow: 1px 4px 3px rgb(139, 139, 139);
+  cursor: pointer;
+}
+
+.card .title {
+  height: 50px;
+  overflow-y: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.card .scrollable-title {
+  overflow-y: auto;
 }
 
 .detail-button {
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgb(81, 80, 80);
-    color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(81, 80, 80);
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.6s;
+  position: absolute;
+  bottom: 10px;
 }
 
 .detail-button:hover {
-    cursor: pointer;
-    background-color: rgb(212, 164, 101);
-    transition: all 0.6s;
+  background-color: rgb(212, 164, 101);
 }
 
- .card div::-webkit-scrollbar {
-    width: 6px;
+.card div::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card div::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.card div::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Media Query: Kiçik ekranlarda kartın eni 100% olsun */
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%; /* Kartın eni kiçik ekranlarda tam genişlikdə olacaq */
+    margin: 10px 0; /* Kart arasındakı boşluqları tənzimləyirik */
   }
   
-  .card div::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 10px;
+  .detail-button {
+    position: static; /* Düğme ekran ölçüsünə görə daha yaxşı yerləşir */
+    margin-top: 10px;
   }
-  
-  .card div::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-   
+}

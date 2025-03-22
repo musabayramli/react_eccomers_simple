@@ -16,19 +16,10 @@ function Product({ product }) {
         <div className='card'>
             <img className='image' src={image} alt="" />
 
-            <div style={{ textAlign: 'center', padding: '0 10px' }}>
-                <div
-                    style={{
-                        height: '80px',
-                        overflowY: showScroll ? 'auto' : 'hidden',
-                        transition: 'all 0.3s ease',
-                        paddingRight: '5px',
-                        marginBottom: '5px'
-                    }}
-                >
+            <div style={{ textAlign: 'center'}}>
+                <div className={`title ${showScroll ? 'scrollable-title' : ''}`}>
                     <p style={{ margin: 0 }}>{title}</p>
                 </div>
-
 
                 {title.length > 50 && (
                     <span
@@ -45,7 +36,7 @@ function Product({ product }) {
                     </span>
                 )}
 
-                <h3 style={{ textAlign: 'center' }}>{price}$</h3>
+                <h3>{price}$</h3>
             </div>
 
             <div className='flex-row'>
